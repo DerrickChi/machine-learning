@@ -12155,7 +12155,7 @@ Testing set has 95 samples.
 <ul>
 <li>Ducument classificaion and spam filtering. <a href="http://scikit-learn.org/stable/modules/naive_bayes.html">http://scikit-learn.org/stable/modules/naive_bayes.html</a></li>
 <li>It's simple but usually works well! Fast, and only requires a small amount of training data to estimate the necessary parameters.  </li>
-<li>It can’t learn interactions between features.</li>
+<li>It can’t learn interactions between features. If there are no occurrences of a class label and a certain feature value together, then the frequency-based probability estimate will be zero.</li>
 <li>Our dataset only has 300~ samples which is considered small.</li>
 </ul>
 <p>SVM:</p>
@@ -12168,8 +12168,8 @@ Testing set has 95 samples.
 <p>Random Forest:</p>
 <ul>
 <li>Face and object detection. <a href="https://games.slashdot.org/story/11/03/26/2014234/kinects-ai-breakthrough-explained">https://games.slashdot.org/story/11/03/26/2014234/kinects-ai-breakthrough-explained</a>  </li>
-<li>It is one of the most accurate learning algorithms available. For many data sets, it produces a highly accurate classifier. </li>
-<li>Prone to overfit for some dataset with noise. Unlike decision trees, the classifications made by random forests are difficult for humans to interpret. </li>
+<li>It is one of the most accurate learning algorithms available. For many data sets, it produces a highly accurate classifier. Compared with decision trees, RF is less likely to overfit the training set.</li>
+<li>Unlike decision trees, the classifications made by random forests are difficult for humans to interpret. </li>
 <li>This is just my experimental choice for this dataset.</li>
 </ul>
 
@@ -12507,6 +12507,7 @@ F1 score for test set: 0.7407.
 </tr>
 </tbody>
 </table>
+<p>All the required times and F1 scores are within a reasonable range.</p>
 
 </div>
 </div>
@@ -12556,7 +12557,9 @@ F1 score for test set: 0.7407.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> During the training process, the SVC finds a hyperplane which best separates the training data in two classes. In the testing phase, the SVC uses the hyperplane to split the feature space into two regions, and classifies the testing data points by which region they belong.</p>
+<p><strong>Answer: </strong></p>
+<p>During the training process, the SVC finds a hyperplane which best separates the training data in two classes (pass and fail). To be more specific, the best hyperpane will have the maximum-margin to separate classes. It allows for noise and is most tolerant to mistakes on either side. If the data is not linearly separable, we can apply kernel tricks to transform the features we observe into higher dimensions. By doing so, we can draw hyperplanes in higher dimensions and seperate classes.</p>
+<p>In the testing phase, the SVC uses the hyperplane to split the feature space into two regions, and classifies the testing data points by which region they belong.</p>
 
 </div>
 </div>
