@@ -11813,7 +11813,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import the visualization code</span>
@@ -13548,7 +13548,7 @@ AABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>4(waypoint) x 2(light) x 4(left) x 4(oncoming) = 128</li>
+<li>3(waypoint) x 2(light) x 4(left) x 4(oncoming) = 96</li>
 <li>The driving agent may be able to learn a policy for each possible state with a resonable number of training trials. </li>
 </ul>
 
@@ -15438,7 +15438,7 @@ $$ \epsilon = a^t, \textrm{for } 0 < a < 1 \hspace{50px}\epsilon = \frac{1}{t^2}
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load the &#39;sim_improved-learning&#39; file from the improved Q-Learning simulation</span>
@@ -18032,8 +18032,8 @@ JEmSJEmSJEmSJEkaGv8f3J2+d7otKFQAAAAASUVORK5CYII=
 <li>~460 trials</li>
 <li>epsilon-tolerance: 0.01 =&gt; to ensure that there are enough trials, alpha: 0.2 =&gt; I want to emphasize more on previous experience than current reward. </li>
 <li>(F, A)-&gt;(A+, A+) I think the main cause of this improvement is due to the increasing number of training trials.</li>
-<li>Yes. </li>
-<li>Yes.</li>
+<li>Yes, the driving agent is able to safely and reliably guide the Smartcab to the destination before the deadline. </li>
+<li>Yes, both of the two ratings are very good. In addition, I also observed that it doesn't matter much about what decay function to be used. It's more important that there should be enough number of training trials.  </li>
 </ul>
 
 </div>
@@ -18081,6 +18081,11 @@ JEmSJEmSJEmSJEkaGv8f3J2+d7otKFQAAAAASUVORK5CYII=
 <li>policy: left, optimal policy: forward</li>
 <li>In this case, it's green light for the agent and the next waypoint is forward, so the optimal policy should be forward.</li>
 </ul>
+<ul>
+<li>I think the mismatch between the agent's behavior and the optimal policy is due to the way how 'optimal policy' is defined.</li>
+<li>If we defined the 'optimal policy' as the U.S. right-of-way traffic laws, then the agent's behavior matches the optimal policy.</li>
+<li>If we define the 'optimal policy' as (the U.S. right-of-way traffic laws) &amp;&amp; (try the best to follow the planned route), then the agent's behavior does not match the optimal policy perfectly. I guess this is because we calculate the rewards only based on the traffic laws, without considering the match between actual moves and waypoints.</li>
+</ul>
 
 </div>
 </div>
@@ -18114,7 +18119,7 @@ JEmSJEmSJEmSJEkaGv8f3J2+d7otKFQAAAAASUVORK5CYII=
 <p><strong>Answer:</strong></p>
 <ol>
 <li>The Smartcab only gets immediate sensor inputs, so we can't predict future states.</li>
-<li>One state is usually not causally connected to the next one. </li>
+<li>A state transition in one trial has no implications to what happens in another trail because the Smartcab world resets and starts randomly every time.    </li>
 </ol>
 
 </div>
