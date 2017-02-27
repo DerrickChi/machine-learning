@@ -9,9 +9,18 @@ Libraries: tensorflow, numpy, scipy, matplotlib, cPickle
 
 
 Preprocessing: 			1_SVHN_Preprocessing.ipynb
+						
+						
 						Generates: 	SVHN_metadata.pickle and SVHN_data.pickle
 
+
 CNN Model Tuning: 		2_SVHN_CNN_tuning.ipynb
+
+
 CNN Final Model: 		3_SVHN_CNN_final.ipynb
+
+
 Predictions: 			4_SVHN_Predict.ipynb
+
+
 Model visualization: 	utils.py 
