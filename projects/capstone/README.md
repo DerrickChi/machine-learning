@@ -16,9 +16,12 @@ Preprocessing: 			1_SVHN_Preprocessing.ipynb
 
 CNN Model Tuning: 		2_SVHN_CNN_tuning.ipynb
 
+						Generates: CNN_trained_initialModel.ckpt and CNN_trained_refinedModel.ckpt
+
 
 CNN Final Model: 		3_SVHN_CNN_final.ipynb
 
+    					Generates: CNN_trained_finalModel.ckpt
 
 Predictions: 			4_SVHN_Predict.ipynb
 
